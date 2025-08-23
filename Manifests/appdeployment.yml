@@ -17,8 +17,6 @@ spec:
               image: ananyapinninti/project:k8sdockerapp-AppImg
               ports:
                 - containerPort: 8080
-              imagePullSecrets
-                - name:
 ---
 apiVersion: v1
 kind: Service
