@@ -12,11 +12,11 @@ spec:
             labels:
                 app: zomato
         spec:
-        containers:
-            - name: db-cont
-              image: ananyapinninti/project:k8sdockerapp-DBImg
-              ports:
-                - containerPort: 3306
+            containers:
+                - name: db-cont
+                  image: ananyapinninti/project:k8sdockerapp-DBImg
+                  ports:
+                    - containerPort: 3306
 ---
 apiVersion: v1
 kind: Service
