@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-    name: devops-app
+    name: deploy-app
 spec:
     replicas: 2
     selector:
@@ -20,24 +20,14 @@ spec:
               imagePullSecrets
                 - name:
 ---
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Service
 metadata:
-    name: devops-app
+        name: app-svc
 spec:
-    replicas: 2
-    selector:
-        matchLabels:
-            app: swiggy
-    template:
-        metadata:
-            labels:
+        type: LoadBalancer
+        selector:
                 app: swiggy
-        spec:
-        containers:
-            - name: appcont
-              image: ananyapinninti/project:k8sdockerapp-AppImg
-              ports:
-                - containerPort: 8080
-              imagePullSecrets
-                - name:
+        ports:
+                - port: 8080
+                  targetPort: 8080
